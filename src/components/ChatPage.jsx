@@ -20,7 +20,7 @@ const ChatPage = () => {
   const sendMessageHandler = async (receiverId) => {
     try {
       const res = await axios.post(
-        `http://localhost:8800/api/v1/message/send/${receiverId}`,
+        `${import.meta.env.VITE_API_URL}/api/v1/message/send/${receiverId}`,
         { textMessage },
         {
           headers: {
@@ -54,6 +54,7 @@ const ChatPage = () => {
             const isOnline = onlineUsers.includes(suggestedUser?._id);
             return (
               <div
+                key={suggestedUsers._id}
                 onClick={() => dispatch(setSelectedUser(suggestedUser))}
                 className="flex gap-3 items-center p-3 hover:bg-gray-50 cursor-pointer"
               >

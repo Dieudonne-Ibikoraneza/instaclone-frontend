@@ -9,7 +9,7 @@ const useGetSuggestedUsers = () => {
     const fetchSuggestedUsers = async () => {
       try {
         const res = await axios.get(
-          "http://localhost:8800/api/v1/user/suggested",
+          `${import.meta.env.VITE_API_URL}/api/v1/user/suggested`,
           { withCredentials: true }
         );
         if (res.data.success) {

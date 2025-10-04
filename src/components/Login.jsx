@@ -27,7 +27,7 @@ const Login = () => {
     try {
       setLoading(true);
       const res = await axios.post(
-        "http://localhost:8800/api/v1/user/login",
+        `${import.meta.env.VITE_API_URL}/api/v1/user/login`,
         input,
         {
           headers: {
